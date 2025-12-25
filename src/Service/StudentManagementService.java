@@ -37,7 +37,7 @@ public class StudentManagementService {
     }
 
     public static void deactivateStudent(Integer id){
-        if(id < 0 || id>= studentArrayList.size()){
+        if(!IdGenerator.validateId("student", id)){
             System.out.println("Invalid Student id");
         }
 

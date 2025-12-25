@@ -2,14 +2,14 @@ package Entity;
 
 public class Course {
 //    Fields: id, courseName, description, durationInWeeks, active
-    private Integer id;
+    private int id;
     private String courseName;
     private String description;
-    private Integer durationInWeeks;
+    private int durationInWeeks;
     private boolean active;
 
 //    constuctor
-    Course(Integer id,String courseName,String description,Integer durationInWeeks){
+    public Course(int id,String courseName,String description,int durationInWeeks){
         this.id =id;
         this.courseName =courseName;
         this.description = description;
@@ -27,5 +27,8 @@ public class Course {
         System.out.println("Course Description :"+ description);
         System.out.println("duration (in weeks) :"+ durationInWeeks);
         System.out.print("status: "+ active);
+    }
+    public void displayName(){
+        System.out.println(this.courseName);
     }
 }
