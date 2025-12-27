@@ -5,6 +5,7 @@ public class Enrollment {
     private int student_id;
     private int course_id;
     private String enrollmentDate;
+    private String status = "PENDING";
 
     public Enrollment(int id, int student_id, int course_id, String enrollmentDate){
         this.id = id ;
@@ -21,5 +22,8 @@ public class Enrollment {
     }
     public void displayEnrollementDetailsOfStudent(){
         System.out.print(id + " " + course_id + " " + enrollmentDate + " " );
+    }
+    public void setStatus(String status){
+        this.status = status;
     }
 }

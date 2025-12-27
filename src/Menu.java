@@ -37,7 +37,8 @@ public class Menu {
         System.out.println("----------------Welcome to Enrollment Management System--------------------");
         System.out.println("1. Enroll a student in a course");
         System.out.println("2. View enrollments for a student");
-        System.out.println("3. Mark enrollment as completed/cancelled");
+        System.out.println("3. Mark enrollment as completed");
+        System.out.println("4. Mark enrollment as cancelled");
         System.out.println("5. Back to home");
 
 //        System.out.println("4. Exit");
