@@ -26,7 +26,7 @@ public class Course {
         System.out.println("Name of course :"+courseName);
         System.out.println("Course Description :"+ description);
         System.out.println("duration (in weeks) :"+ durationInWeeks);
-        System.out.print("status: "+ active);
+        System.out.println("status: "+ active);
     }
     public void displayName(){
         System.out.println(this.courseName);

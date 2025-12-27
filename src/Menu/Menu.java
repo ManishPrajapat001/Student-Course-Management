@@ -1,3 +1,5 @@
+package Menu;
+
 public class Menu {
     public static void displayMainMenu(){
         System.out.println("--------------------------------------------------------------------------");

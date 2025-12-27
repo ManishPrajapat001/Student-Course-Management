@@ -10,15 +10,12 @@ public class IdGenerator {
     private static int studentId = 0;
     private static int courseId = 0;
     private static int enrollmentId = 0;
-    public static int getNextStudentId(ArrayList<Student>studentArrayList){
-        studentId= studentArrayList.size();
-
-        return studentId;
+    public static int getNextStudentId(){
+        return studentId++;
     }
 
     public static int getNextCourseId(ArrayList<Course>CourseArrayList){
-        courseId = CourseArrayList.size();
-        return courseId;
+        return courseId++;
     }
 
     public static int getEnrollmentIdId(ArrayList<Enrollment>EnrollmentArrayList){
@@ -29,14 +26,15 @@ public class IdGenerator {
     public static boolean validateId(String type,int id){
         if(id<0)    return false;
 
+        System.out.println(type + " : "+id+ " : "+ courseId );
         if(type.equals("student")){
-            return id<=studentId;
+            return id<=studentId+1;
         }
         else if (type.equals("course")){
-            return id<=courseId;
+            return id<=courseId+1;
         }
         else if(type.equals("enrollment")){
-            return id<=enrollmentId;
+            return id<=enrollmentId+1;
         }
 
 

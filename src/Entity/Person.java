@@ -23,10 +23,15 @@ abstract class Person {
 
     public void displayPerson(){
 
-        System.out.println(id+" " +firstName +" "+lastName+" "+ email + " "+ active);
+        System.out.println("Student id : "+id );
+        System.out.println("Name       :" +firstName +" "+lastName );
+        System.out.println("email id   :" + email);
+        System.out.println("status     :"+ active);
     }
 
-
+    public int getId(){
+        return this.id;
+    }
     public void changeActiveState(boolean active){
         this.active = active;
     }

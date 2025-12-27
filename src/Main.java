@@ -1,9 +1,8 @@
-import Entity.Student;
-import Service.CourseManagementService;
-import Service.EnrollmentManagementService;
-import Service.StudentManagementService;
+import Menu.Menu;
+import Repositories.CourseManagementRepository;
+import Repositories.EnrollmentManagementRepository;
+import Repositories.StudentManagementRepository;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -26,23 +25,23 @@ public class Main {
                     System.out.println("Enter email id :");
                     String email = sc.nextLine();
 
-                    StudentManagementService.addStudent(firstName,lastName,email);
+                    StudentManagementRepository.addStudent(firstName,lastName,email);
                     break;
 
                 case 2:
-                    StudentManagementService.viewAllStudents();
+                    StudentManagementRepository.viewAllStudents();
                     break;
 
                 case 3:
                     System.out.println("Enter student Id:");
                     student_id = sc.nextInt();
-                    StudentManagementService.searchStudentByID(student_id);
+                    StudentManagementRepository.searchStudentByID(student_id);
                     break;
 
                 case 4:
                     System.out.println("enter the student id :");
                     student_id = sc.nextInt();
-                    StudentManagementService.deactivateStudent(student_id);
+                    StudentManagementRepository.deactivateStudent(student_id);
                     break;
 
                 case 5:
@@ -64,6 +63,7 @@ public class Main {
     public static void courseManagementConsole(){
         int choice = 0;
         do {
+            Menu.displayCourseManagementMenu();
             choice = sc.nextInt();
             sc.nextLine();
             int course_id = 0;
@@ -79,12 +79,12 @@ public class Main {
                     Integer durationInWeeks = sc.nextInt();
                     sc.nextLine();
 
-                    CourseManagementService.addCourse(courseName,description,durationInWeeks);
+                    CourseManagementRepository.addCourse(courseName,description,durationInWeeks);
 
                     break;
 
                 case 2:
-                    CourseManagementService.viewAllCourses();
+                    CourseManagementRepository.viewAllCourses();
                     break;
 
                 case 3:
@@ -94,7 +94,7 @@ public class Main {
                     course_id = sc.nextInt();
                     sc.nextLine();
 
-                    CourseManagementService.changeStatus(course_id,status);
+                    CourseManagementRepository.changeStatus(course_id,status);
                     break;
 
 
@@ -103,7 +103,7 @@ public class Main {
                     course_id = sc.nextInt();
                     sc.nextLine();
 
-                    CourseManagementService.changeStatus(course_id,status);
+                    CourseManagementRepository.changeStatus(course_id,status);
 
                     break;
 
@@ -119,6 +119,7 @@ public class Main {
     public static void enrollmentManagementConsole(){
         int choice =0;
         do {
+            Menu.displayEnrollmentManagementMenu();
             choice = sc.nextInt();
             sc.nextLine();
             int student_id,course_id,enrollment_id;
@@ -136,7 +137,7 @@ public class Main {
                     System.out.println("Enter Date (DDMMYYYY) :");
                     String enrollmentDate = sc.nextLine();
 
-                    EnrollmentManagementService.addEnrollment(student_id,course_id,enrollmentDate);
+                    EnrollmentManagementRepository.addEnrollment(student_id,course_id,enrollmentDate);
 
                     break;
 
@@ -145,7 +146,7 @@ public class Main {
 
                     student_id = sc.nextInt();
                     sc.nextLine();
-                    EnrollmentManagementService.viewEnrollmentsOfStudent(student_id);
+                    EnrollmentManagementRepository.viewEnrollmentsOfStudent(student_id);
 
                     break;
 
@@ -153,7 +154,7 @@ public class Main {
                     System.out.println("Enter enrollment id : ");
                     enrollment_id = sc.nextInt();
                     sc.nextLine();
-                    EnrollmentManagementService.changeStatus(enrollment_id,"COMPLETED");
+                    EnrollmentManagementRepository.changeStatus(enrollment_id,"COMPLETED");
                     break;
 
                 case 4:
@@ -161,7 +162,7 @@ public class Main {
                     enrollment_id = sc.nextInt();
                     sc.nextLine();
 
-                    EnrollmentManagementService.changeStatus(enrollment_id,"CANCELLED");
+                    EnrollmentManagementRepository.changeStatus(enrollment_id,"CANCELLED");
                     break;
 
                 case 5:
