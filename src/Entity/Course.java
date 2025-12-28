@@ -31,4 +31,8 @@ public class Course {
     public void displayName(){
         System.out.println(this.courseName);
     }
+
+    public int getID(){
+        return this.id;
+    }
 }

@@ -21,41 +21,29 @@ public class EnrollmentManagementRepository {
             return;
         }
 
-
         enrollmentArrayList.add(new Enrollment(id,student_id,course_id,enrollmentDate));
 
     }
 
-    public static void viewEnrollmentsOfStudent(int student_id){
-
-        if(!IdGenerator.validateId("student",student_id) ){
-            System.out.println("INVALID STUDENT ID");
-            return;
-        }
-        System.out.println("===============================================================================================");
-        System.out.println("Enrollment List of Student with Student_id : " +student_id);
-        System.out.println("===============================================================================================");
+    public static ArrayList<Enrollment> viewEnrollmentsOfStudent(int student_id){
+        ArrayList<Enrollment>enrollmentsOfStudent = new ArrayList<>();
 
         for(Enrollment enrollment:enrollmentArrayList){
             if(enrollment.getStudentId() == student_id){
-                enrollment.displayEnrollementDetailsOfStudent();
-                CourseManagementRepository.viewCourseById(enrollment.getCourseId());
-                System.out.println("----------------------------------------------------------------------------");
+                enrollmentsOfStudent.add(enrollment);
             }
         }
-        System.out.println("=============================================THE END==================================================");
-
-
-
+        return enrollmentsOfStudent;
     }
 
-    public static void changeStatus(int enrollment_id ,String status){
-        if(!IdGenerator.validateId("enrollment",enrollment_id)){
-            System.out.println("Invalid Enrollment ID");
-            return;
-        }
+    public static boolean changeStatus(int enrollment_id ,String status){
+       for (Enrollment enrollment:enrollmentArrayList){
+           if (enrollment.getId() == enrollment_id){
+               enrollment.setStatus(status);
+               return true;
+           }
+       }
 
-        enrollmentArrayList.get(enrollment_id).setStatus(status);
-        System.out.println("Status updated to : " + status);
+       return false;
     }
 }

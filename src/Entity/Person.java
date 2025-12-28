@@ -24,7 +24,7 @@ abstract class Person {
     public void displayPerson(){
 
         System.out.println("Student id : "+id );
-        System.out.println("Name       :" +firstName +" "+lastName );
+        System.out.println("Name       :" + this.getFullName() );
         System.out.println("email id   :" + email);
         System.out.println("status     :"+ active);
     }

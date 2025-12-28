@@ -4,6 +4,7 @@ import Entity.Student;
 import Repositories.StudentManagementRepository;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import Exception.EntityNotFoundException;
 import Menu.Menu ;
@@ -20,11 +21,11 @@ public class StudentConsole {
         System.out.println("Enter email id :");
         String email = sc.nextLine();
 
-        StudentManagementRepository.addStudent(firstName,lastName,email);
+        StudentManagementService.addStudent(firstName,lastName,email);
     }
 
     private static void viewAllStudents(){
-        ArrayList<Student>studentArrayList = StudentManagementRepository.viewAllStudents();
+        ArrayList<Student>studentArrayList = StudentManagementService.viewAllStudents();
         System.out.println("========================================LIST OF STUDENTS==========================================================");
 
         for (Student student:studentArrayList){
@@ -52,9 +53,18 @@ public class StudentConsole {
     }
 
     private static void deactivateStudent(){
-        System.out.println("enter the student id :");
-        int student_id = sc.nextInt();
-        StudentManagementRepository.deactivateStudent(student_id);
+        try{
+            System.out.println("enter the student id :");
+            int student_id = sc.nextInt();
+            StudentManagementService.deactivateStudent(student_id);
+            System.out.println("Student deactivated successfully!");
+
+        }catch (InputMismatchException e){
+            System.out.println("Enter an integer not other type");
+        }catch (EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public static void studentManagementConsole(){
@@ -88,8 +98,6 @@ public class StudentConsole {
                     System.out.println("Invalid key");
             }
         }while(choice != 5);
-
-
 
     }
 

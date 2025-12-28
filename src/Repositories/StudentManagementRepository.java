@@ -28,13 +28,14 @@ public class StudentManagementRepository {
         return null;
     }
 
-    public static void deactivateStudent(Integer id){
-        if(!IdGenerator.validateId("student", id)){
-            System.out.println("Invalid Student id");
+    public static boolean deactivateStudent(Integer id){
+
+        for(Student student :studentArrayList){
+            if(student.getId() == id){
+                student.changeActiveState(false);
+                return true;
+            }
         }
-
-        studentArrayList.get(id).changeActiveState(false);
-
-        System.out.println("Student deactivated successfully!");
+        return false;
     }
 }

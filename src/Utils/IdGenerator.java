@@ -14,7 +14,7 @@ public class IdGenerator {
         return studentId++;
     }
 
-    public static int getNextCourseId(ArrayList<Course>CourseArrayList){
+    public static int getNextCourseId(){
         return courseId++;
     }
 
@@ -28,13 +28,13 @@ public class IdGenerator {
 
         System.out.println(type + " : "+id+ " : "+ courseId );
         if(type.equals("student")){
-            return id<=studentId+1;
+            return id<studentId;
         }
         else if (type.equals("course")){
-            return id<=courseId+1;
+            return id<courseId;
         }
         else if(type.equals("enrollment")){
-            return id<=enrollmentId+1;
+            return id<enrollmentId ;
         }
 
 

@@ -21,9 +21,16 @@ public class Enrollment {
         return course_id;
     }
     public void displayEnrollementDetailsOfStudent(){
-        System.out.print(id + " " + course_id + " " + enrollmentDate + " " );
+        System.out.println("Enrollment id   :"+id);
+        System.out.println("Course id       :"+course_id);
+        System.out.println("Enrollment Date :"+enrollmentDate);
     }
+
     public void setStatus(String status){
         this.status = status;
+    }
+
+    public int getId() {
+        return this.id;
     }
 }
